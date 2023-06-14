@@ -13,4 +13,5 @@
   background-color: var(--Light_blue);
   font-weight: 700;
   color: var(--Marine-blue);
+   border: 1px solid var(--Light_blue);
 }

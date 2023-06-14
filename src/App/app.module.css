@@ -6,6 +6,7 @@
   background-size: 100%;
   background-repeat: no-repeat;
   padding: 1rem;
+  background-color: var(--Light_blue);
 }
 
 .phaseContainer {

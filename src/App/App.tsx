@@ -21,7 +21,7 @@ function App() {
         <PhaseIndicator phase={phase.phase3}>3</PhaseIndicator>
         <PhaseIndicator phase={phase.phase4}>4</PhaseIndicator>
       </div>
-      <MultStepForm />
+      <MultStepForm phase={phase} />
     </section>
   );
 }
