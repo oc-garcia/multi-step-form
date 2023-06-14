@@ -1,0 +1,33 @@
+.stepBarContainer1 {
+  height: 10vh;
+  background-color: var(--White);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.stepBarContainer234 {
+  height: 10vh;
+  background-color: var(--White);
+  display: flex;    
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.backBtn {
+  color: var(--Cool_gray);
+  cursor: pointer;
+  font-size: small;
+}
+
+.nextBtn {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: var(--Marine-blue);
+  color: var(--White);
+  font-weight: 700;
+  border-radius: 5px;
+}

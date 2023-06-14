@@ -1,12 +1,21 @@
 .mainContainer {
   width: 100vw;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.topContainer {
   background-image: url("../assets//images/bg-sidebar-mobile.svg");
   background-position: top;
   background-size: 100%;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   background-color: var(--Light_blue);
+  height: 90vh;
 }
 
 .phaseContainer {
