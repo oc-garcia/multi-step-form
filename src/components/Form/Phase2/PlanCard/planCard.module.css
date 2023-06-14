@@ -1,0 +1,16 @@
+.planCardContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--Cool_gray);
+}
+
+.planName {
+  color: var(--Marine-blue);
+}
+
+.planPrice {
+  color: var(--Cool_gray);
+}

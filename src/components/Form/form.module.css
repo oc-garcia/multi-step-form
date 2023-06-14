@@ -43,3 +43,50 @@
   font-weight: 700;
   color: var(--Cool_gray);
 }
+
+.planSelectorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.selectedPlan {
+  color: var(--Marine-blue);
+  font-weight: 700;
+}
+
+.switchContainerMonthly {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 50px;
+  padding: 0.5rem;
+  background-color: var(--Marine-blue);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.switchContainerYearly {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 50px;
+  padding: 0.5rem;
+  background-color: var(--Marine-blue);
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+.switchBtn {
+  background-color: var(--White);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+
+.unselectedPlan {
+  color: var(--Cool_gray);
+  font-weight: 700;
+}
