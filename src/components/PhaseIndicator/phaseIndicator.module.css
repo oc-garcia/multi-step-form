@@ -1,0 +1,16 @@
+.phaseIndicatorInactive {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--White);
+  border-radius: 50%;
+  background-color: var(--Purplish_blue);
+  font-weight: 700;
+  color: var(--White);
+}
+
+.phaseIndicatorActive {
+  padding: 0.5rem 0.8rem;
+  border-radius: 50%;
+  background-color: var(--Light_blue);
+  font-weight: 700;
+  color: var(--Marine-blue);
+}

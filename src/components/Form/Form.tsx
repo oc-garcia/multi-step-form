@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IFormInfo } from "../types/IFormInfo";
+import { IFormInfo } from "../../types/IFormInfo";
 
 const formInfoDefault = {
   name: "",

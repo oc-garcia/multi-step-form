@@ -1,0 +1,17 @@
+.mainContainer {
+  width: 100vw;
+  min-height: 100vh;
+  background-image: url("../assets//images/bg-sidebar-mobile.svg");
+  background-position: top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+
+.phaseContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
