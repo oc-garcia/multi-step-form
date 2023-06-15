@@ -14,6 +14,9 @@ export default function StepBar({ phase, setPhase }: Props) {
     if (phase.phase2) {
       setPhase({ ...phase, phase2: false, phase3: true });
     }
+    if (phase.phase3) {
+      setPhase({ ...phase, phase3: false, phase4: true });
+    }
   };
 
   const handleBack = () => {
@@ -23,6 +26,13 @@ export default function StepBar({ phase, setPhase }: Props) {
     if (phase.phase3) {
       setPhase({ ...phase, phase2: true, phase3: false });
     }
+    if (phase.phase4) {
+      setPhase({ ...phase, phase3: true, phase4: false });
+    }
+  };
+
+  const handleSubmit = () => {
+    console.log("Submit");
   };
 
   return (
@@ -32,9 +42,16 @@ export default function StepBar({ phase, setPhase }: Props) {
           Go Back
         </p>
       )}
-      <p onClick={handleNext} className={styles.nextBtn}>
-        Next Step
-      </p>
+      {!phase.phase4 && (
+        <p onClick={handleNext} className={styles.nextBtn}>
+          Next Step
+        </p>
+      )}
+      {phase.phase4 && (
+        <p onClick={handleSubmit} className={styles.submitBtn}>
+          Confirm
+        </p>
+      )}
     </div>
   );
 }

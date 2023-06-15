@@ -33,7 +33,7 @@ export default function AddonCard({ formInfo, setFormInfo, name, id }: Props) {
   };
 
   const [price, setPrice] = useState<number>(0);
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(handleChecked);
 
   useEffect(() => {
     const handlePrice = () => {

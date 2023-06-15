@@ -11,7 +11,7 @@
 .stepBarContainer234 {
   height: 10vh;
   background-color: var(--White);
-  display: flex;    
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
@@ -21,12 +21,22 @@
   color: var(--Cool_gray);
   cursor: pointer;
   font-size: small;
+  font-weight: 700;
 }
 
 .nextBtn {
   cursor: pointer;
   padding: 1rem;
   background-color: var(--Marine-blue);
+  color: var(--White);
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.submitBtn {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: var(--Purplish_blue);
   color: var(--White);
   font-weight: 700;
   border-radius: 5px;
