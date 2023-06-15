@@ -4,6 +4,7 @@ import { Iphase } from "../../types/IPhase";
 import styles from "./form.module.css";
 import Phase1 from "./Phase1/Phase1";
 import Phase2 from "./Phase2/Phase2";
+import Phase3 from "./Phase3/Phase3";
 
 const formInfoDefault = {
   name: "",
@@ -25,6 +26,7 @@ export default function MultStepForm({ phase }: Props) {
     <form className={styles.formContainer}>
       {phase.phase1 && <Phase1 formInfo={formInfo} setFormInfo={setFormInfo} />}
       {phase.phase2 && <Phase2 formInfo={formInfo} setFormInfo={setFormInfo} />}
+      {phase.phase3 && <Phase3 formInfo={formInfo} setFormInfo={setFormInfo} />}
     </form>
   );
 }

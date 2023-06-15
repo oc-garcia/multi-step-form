@@ -11,11 +11,17 @@ export default function StepBar({ phase, setPhase }: Props) {
     if (phase.phase1) {
       setPhase({ ...phase, phase1: false, phase2: true });
     }
+    if (phase.phase2) {
+      setPhase({ ...phase, phase2: false, phase3: true });
+    }
   };
 
   const handleBack = () => {
     if (phase.phase2) {
       setPhase({ ...phase, phase1: true, phase2: false });
+    }
+    if (phase.phase3) {
+      setPhase({ ...phase, phase2: true, phase3: false });
     }
   };
 
