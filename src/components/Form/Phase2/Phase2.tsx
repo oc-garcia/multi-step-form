@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction } from "react";
 import { IFormInfo } from "../../../types/IFormInfo";
 import styles from "../form.module.css";
 import PlanCard from "./PlanCard/PlanCard";
@@ -12,23 +12,27 @@ type Props = {
 };
 
 export default function Phase2({ formInfo, setFormInfo }: Props) {
-  const getDefault = () => {
-    if (formInfo.planType === "Monthly") {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const [isMonthly, setIsMonthly] = useState<boolean>(getDefault);
-
   const handleIsMonthly = () => {
-    if (isMonthly) {
-      setIsMonthly(!isMonthly);
-      setFormInfo({ ...formInfo, planType: "Yearly", basePrice: formInfo.basePrice * 10 });
+    if (formInfo.isMonthly) {
+      setFormInfo({
+        ...formInfo,
+        planType: "Yearly",
+        basePrice: formInfo.basePrice * 10,
+        isMonthly: false,
+        onlineService: formInfo.onlineService * 10,
+        largerStorage: formInfo.largerStorage * 10,
+        customizableProfile: formInfo.customizableProfile * 10,
+      });
     } else {
-      setIsMonthly(!isMonthly);
-      setFormInfo({ ...formInfo, planType: "Monthly", basePrice: formInfo.basePrice / 10 });
+      setFormInfo({
+        ...formInfo,
+        planType: "Monthly",
+        basePrice: formInfo.basePrice / 10,
+        isMonthly: true,
+        onlineService: formInfo.onlineService / 10,
+        largerStorage: formInfo.largerStorage / 10,
+        customizableProfile: formInfo.customizableProfile / 10,
+      });
     }
   };
 
@@ -42,8 +46,8 @@ export default function Phase2({ formInfo, setFormInfo }: Props) {
       <div className={styles.planSelectorContainer}>
         <p className={formInfo.planType === "Monthly" ? styles.selectedPlan : styles.unselectedPlan}>Monthly</p>
         <div
-          onClick={handleIsMonthly}
-          className={isMonthly ? styles.switchContainerMonthly : styles.switchContainerYearly}>
+          onClick={() => handleIsMonthly()}
+          className={formInfo.isMonthly === true ? styles.switchContainerMonthly : styles.switchContainerYearly}>
           <div className={styles.switchBtn}></div>
         </div>
         <p className={formInfo.planType === "Yearly" ? styles.selectedPlan : styles.unselectedPlan}>Yearly</p>

@@ -13,6 +13,10 @@ const formInfoDefault = {
   planName: "Arcade",
   planType: "Monthly",
   basePrice: 9,
+  onlineService: 0,
+  largerStorage: 0,
+  customizableProfile: 0,
+  isMonthly: true,
 } as IFormInfo;
 
 type Props = {
@@ -21,7 +25,7 @@ type Props = {
 
 export default function MultStepForm({ phase }: Props) {
   const [formInfo, setFormInfo] = useState(formInfoDefault);
-  console.log(formInfo)
+  console.log(formInfo);
   return (
     <form className={styles.formContainer}>
       {phase.phase1 && <Phase1 formInfo={formInfo} setFormInfo={setFormInfo} />}

@@ -5,4 +5,8 @@ export interface IFormInfo {
   planName: string;
   planType: string;
   basePrice: number;
+  onlineService: number;
+  largerStorage: number;
+  customizableProfile: number;
+  isMonthly: boolean;
 }
