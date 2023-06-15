@@ -7,10 +7,30 @@
   border: 1px solid var(--Cool_gray);
 }
 
+.planCardContainerSelected {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--Purplish_blue);
+}
+
+.planDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
 .planName {
   color: var(--Marine-blue);
 }
 
 .planPrice {
   color: var(--Cool_gray);
+}
+
+.planFreeDisclaimer {
+  color: var(--Marine-blue);
+  font-size: small;
 }

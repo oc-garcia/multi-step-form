@@ -12,15 +12,23 @@ type Props = {
 };
 
 export default function Phase2({ formInfo, setFormInfo }: Props) {
-  const [isMonthly, setIsMonthly] = useState<boolean>(true);
+  const getDefault = () => {
+    if (formInfo.planType === "Monthly") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const [isMonthly, setIsMonthly] = useState<boolean>(getDefault);
 
   const handleIsMonthly = () => {
     if (isMonthly) {
       setIsMonthly(!isMonthly);
-      setFormInfo({ ...formInfo, planType: "Yearly" });
+      setFormInfo({ ...formInfo, planType: "Yearly", basePrice: formInfo.basePrice * 10 });
     } else {
       setIsMonthly(!isMonthly);
-      setFormInfo({ ...formInfo, planType: "Monthly" });
+      setFormInfo({ ...formInfo, planType: "Monthly", basePrice: formInfo.basePrice / 10 });
     }
   };
 
@@ -32,13 +40,13 @@ export default function Phase2({ formInfo, setFormInfo }: Props) {
       <PlanCard formInfo={formInfo} setFormInfo={setFormInfo} planName={"Advanced"} planLogo={advancedLogo} />
       <PlanCard formInfo={formInfo} setFormInfo={setFormInfo} planName={"Pro"} planLogo={proLogo} />
       <div className={styles.planSelectorContainer}>
-        <p className={styles.selectedPlan}>Monthly</p>
+        <p className={formInfo.planType === "Monthly" ? styles.selectedPlan : styles.unselectedPlan}>Monthly</p>
         <div
           onClick={handleIsMonthly}
           className={isMonthly ? styles.switchContainerMonthly : styles.switchContainerYearly}>
           <div className={styles.switchBtn}></div>
         </div>
-        <p className={styles.unselectedPlan}>Yearly</p>
+        <p className={formInfo.planType === "Yearly" ? styles.selectedPlan : styles.unselectedPlan}>Yearly</p>
       </div>
     </>
   );

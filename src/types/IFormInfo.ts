@@ -4,5 +4,5 @@ export interface IFormInfo {
   phone: string | number;
   planName: string;
   planType: string;
-  price: number;
+  basePrice: number;
 }

@@ -9,9 +9,9 @@ const formInfoDefault = {
   name: "",
   email: "",
   phone: "",
-  planName: "",
+  planName: "Arcade",
   planType: "Monthly",
-  price: 0,
+  basePrice: 9,
 } as IFormInfo;
 
 type Props = {
