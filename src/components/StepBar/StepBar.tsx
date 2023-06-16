@@ -8,8 +8,10 @@ type Props = {
 
 export default function StepBar({ phase, setPhase }: Props) {
   const handleNext = () => {
-    if (phase.phase1) {
+    if (phase.phase1 && phase.phase1Validated) {
       setPhase({ ...phase, phase1: false, phase2: true });
+    } else {
+      setPhase({ ...phase, phase1Failed: true });
     }
     if (phase.phase2) {
       setPhase({ ...phase, phase2: false, phase3: true });

@@ -24,9 +24,20 @@
   gap: 0.2rem;
 }
 
+.labelContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .label {
   font-size: small;
   color: var(--Marine-blue);
+}
+
+.errorMessage {
+  font-size: small;
+  color: var(--Strawberry_red);
 }
 
 .input {

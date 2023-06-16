@@ -7,6 +7,8 @@ import StepBar from "../components/StepBar/StepBar";
 
 const phaseDefault = {
   phase1: true,
+  phase1Validated: false,
+  phase1Failed: false,
   phase2: false,
   phase3: false,
   phase4: false,
