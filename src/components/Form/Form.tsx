@@ -27,7 +27,6 @@ type Props = {
 
 export default function MultStepForm({ phase, setPhase }: Props) {
   const [formInfo, setFormInfo] = useState(formInfoDefault);
-  console.log(formInfo);
   return (
     <form className={styles.formContainer}>
       {phase.phase1 && <Phase1 formInfo={formInfo} setFormInfo={setFormInfo} />}

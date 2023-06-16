@@ -10,6 +10,7 @@ const phaseDefault = {
   phase2: false,
   phase3: false,
   phase4: false,
+  submitted: false,
 } as Iphase;
 
 function App() {

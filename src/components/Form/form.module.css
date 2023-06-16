@@ -151,3 +151,26 @@
   color: var(--Purplish_blue);
   font-weight: 700;
 }
+
+.submittedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem 0.5rem;
+  text-align: center;
+}
+
+.submittedLogo {
+  height: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.submittedTitle {
+  color: var(--Marine-blue);
+  margin-bottom: 2rem;
+}
+
+.submittedParagraph {
+  color: var(--Cool_gray);
+  line-height: 1.5rem;
+}

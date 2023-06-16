@@ -32,26 +32,29 @@ export default function StepBar({ phase, setPhase }: Props) {
   };
 
   const handleSubmit = () => {
-    console.log("Submit");
+    setPhase({ ...phase, submitted: true });
   };
-
-  return (
-    <div className={phase.phase1 ? styles.stepBarContainer1 : styles.stepBarContainer234}>
-      {!phase.phase1 && (
-        <p onClick={handleBack} className={styles.backBtn}>
-          Go Back
-        </p>
-      )}
-      {!phase.phase4 && (
-        <p onClick={handleNext} className={styles.nextBtn}>
-          Next Step
-        </p>
-      )}
-      {phase.phase4 && (
-        <p onClick={handleSubmit} className={styles.submitBtn}>
-          Confirm
-        </p>
-      )}
-    </div>
-  );
+  if (!phase.submitted) {
+    return (
+      <div className={phase.phase1 ? styles.stepBarContainer1 : styles.stepBarContainer234}>
+        {!phase.phase1 && (
+          <p onClick={handleBack} className={styles.backBtn}>
+            Go Back
+          </p>
+        )}
+        {!phase.phase4 && (
+          <p onClick={handleNext} className={styles.nextBtn}>
+            Next Step
+          </p>
+        )}
+        {phase.phase4 && (
+          <p onClick={handleSubmit} className={styles.submitBtn}>
+            Confirm
+          </p>
+        )}
+      </div>
+    );
+  } else {
+    return <div className={styles.stepBarContainerSubmitted}></div>;
+  }
 }
