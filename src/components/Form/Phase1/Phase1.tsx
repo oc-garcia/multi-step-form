@@ -10,48 +10,50 @@ type Props = {
   setPhase: React.Dispatch<React.SetStateAction<Iphase>>;
 };
 
-export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props) {
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    phone: false,
-  });
+const errorsDefault = {
+  name: false,
+  email: false,
+  phone: false,
+};
 
-  const checkNameError = () => {
+export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props) {
+  const [errors, setErrors] = useState(errorsDefault);
+
+  const checkErrors = () => {
     if (phase.phase1Failed) {
       if (formInfo.name.length < 3) {
-        setErrors({ ...errors, name: true });
+        setErrors((currentState) => ({ ...currentState, name: true }));
       } else {
-        setErrors({ ...errors, name: false });
+        setErrors((currentState) => ({ ...currentState, name: false }));
       }
-    }
-  };
-  const checkEmailError = () => {
-    if (phase.phase1Failed) {
+
       if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
-        setErrors({ ...errors, email: false });
+        setErrors((currentState) => ({ ...currentState, email: false }));
       } else {
-        setErrors({ ...errors, email: true });
+        setErrors((currentState) => ({ ...currentState, email: true }));
       }
-    }
-  };
-  const checkPhoneError = () => {
-    if (phase.phase1Failed) {
+
       if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
-        setErrors({ ...errors, phone: true });
+        setErrors((currentState) => ({ ...currentState, phone: true }));
       } else {
-        setErrors({ ...errors, phone: false });
+        setErrors((currentState) => ({ ...currentState, phone: false }));
+      }
+
+      if (errors.name === false && errors.phone === false && errors.email === false) {
+        setPhase({ ...phase, phase1Validated: true });
       }
     }
   };
 
   useEffect(() => {
-    checkEmailError();
-    checkPhoneError();
-    checkNameError();
+    setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
+  }, []);
+
+  useEffect(() => {
+    checkErrors();
   }, [phase]);
 
-  console.log(errors, phase);
+  console.log(errors, errorsDefault);
   return (
     <>
       <h2 className={styles.formTitle}>Personal info</h2>
@@ -74,13 +76,13 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
           }}
           onBlur={() => {
             if (formInfo.name.length < 3) {
-              setErrors({ ...errors, name: true });
+              setErrors((currentState) => ({ ...currentState, name: true }));
             } else {
-              setErrors({ ...errors, name: false });
+              setErrors((currentState) => ({ ...currentState, name: false }));
             }
           }}
           onFocus={() => {
-            setErrors({ ...errors, name: false });
+            setErrors((currentState) => ({ ...currentState, name: false }));
           }}
         />
       </div>
@@ -102,13 +104,13 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
           }}
           onBlur={() => {
             if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
-              setErrors({ ...errors, email: false });
+              setErrors((currentState) => ({ ...currentState, email: false }));
             } else {
-              setErrors({ ...errors, email: true });
+              setErrors((currentState) => ({ ...currentState, email: true }));
             }
           }}
           onFocus={() => {
-            setErrors({ ...errors, email: false });
+            setErrors((currentState) => ({ ...currentState, email: false }));
           }}
         />
       </div>
@@ -130,13 +132,13 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
           }}
           onBlur={() => {
             if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
-              setErrors({ ...errors, phone: true });
+              setErrors((currentState) => ({ ...currentState, phone: true }));
             } else {
-              setErrors({ ...errors, phone: false });
+              setErrors((currentState) => ({ ...currentState, phone: false }));
             }
           }}
           onFocus={() => {
-            setErrors({ ...errors, phone: false });
+            setErrors((currentState) => ({ ...currentState, phone: false }));
           }}
         />
       </div>
