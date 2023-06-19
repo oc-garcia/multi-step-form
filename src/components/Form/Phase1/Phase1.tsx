@@ -1,59 +1,31 @@
-import { SetStateAction, useEffect, useState } from "react";
+import { SetStateAction, useEffect } from "react";
 import { IFormInfo } from "../../../types/IFormInfo";
 import styles from "../form.module.css";
 import { Iphase } from "../../../types/IPhase";
+import { IErrors } from "../../../types/IErrors";
 
 type Props = {
   formInfo: IFormInfo;
   setFormInfo: React.Dispatch<SetStateAction<IFormInfo>>;
   phase: Iphase;
   setPhase: React.Dispatch<React.SetStateAction<Iphase>>;
+  errors: IErrors;
+  setErrors: React.Dispatch<React.SetStateAction<IErrors>>;
 };
 
-const errorsDefault = {
-  name: false,
-  email: false,
-  phone: false,
-};
-
-export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props) {
-  const [errors, setErrors] = useState(errorsDefault);
-
-  const checkErrors = () => {
-    if (phase.phase1Failed) {
-      if (formInfo.name.length < 3) {
-        setErrors((currentState) => ({ ...currentState, name: true }));
-      } else {
-        setErrors((currentState) => ({ ...currentState, name: false }));
-      }
-
-      if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
-        setErrors((currentState) => ({ ...currentState, email: false }));
-      } else {
-        setErrors((currentState) => ({ ...currentState, email: true }));
-      }
-
-      if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
-        setErrors((currentState) => ({ ...currentState, phone: true }));
-      } else {
-        setErrors((currentState) => ({ ...currentState, phone: false }));
-      }
-
-      if (errors.name === false && errors.phone === false && errors.email === false) {
-        setPhase({ ...phase, phase1Validated: true });
-      }
+export default function Phase1({ formInfo, setFormInfo, phase, setPhase, errors, setErrors }: Props) {
+  useEffect(() => {
+    if (errors.name && errors.phone && errors.email) {
+      setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
+    }
+  }, []);
+  const validate = () => {
+    if (errors.name === false && errors.phone === false && errors.email === false) {
+      setPhase((currentState) => ({ ...currentState, phase1Validated: true }));
+    } else {
+      setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
     }
   };
-
-  useEffect(() => {
-    setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
-  }, []);
-
-  useEffect(() => {
-    checkErrors();
-  }, [phase]);
-
-  console.log(errors, errorsDefault);
   return (
     <>
       <h2 className={styles.formTitle}>Personal info</h2>
@@ -75,8 +47,10 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
             setFormInfo({ ...formInfo, name: e.target.value });
           }}
           onBlur={() => {
+            validate();
             if (formInfo.name.length < 3) {
               setErrors((currentState) => ({ ...currentState, name: true }));
+              setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
             } else {
               setErrors((currentState) => ({ ...currentState, name: false }));
             }
@@ -103,10 +77,12 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
             setFormInfo({ ...formInfo, email: e.target.value });
           }}
           onBlur={() => {
+            validate();
             if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
               setErrors((currentState) => ({ ...currentState, email: false }));
             } else {
               setErrors((currentState) => ({ ...currentState, email: true }));
+              setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
             }
           }}
           onFocus={() => {
@@ -131,8 +107,10 @@ export default function Phase1({ formInfo, setFormInfo, phase, setPhase }: Props
             setFormInfo({ ...formInfo, phone: e.target.value });
           }}
           onBlur={() => {
+            validate();
             if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
               setErrors((currentState) => ({ ...currentState, phone: true }));
+              setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
             } else {
               setErrors((currentState) => ({ ...currentState, phone: false }));
             }

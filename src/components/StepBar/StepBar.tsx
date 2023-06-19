@@ -1,18 +1,44 @@
+import { IErrors } from "../../types/IErrors";
+import { IFormInfo } from "../../types/IFormInfo";
 import { Iphase } from "../../types/IPhase";
 import styles from "./stepBar.module.css";
 
 type Props = {
   phase: Iphase;
   setPhase: React.Dispatch<React.SetStateAction<Iphase>>;
+  errors: IErrors;
+  setErrors: React.Dispatch<React.SetStateAction<IErrors>>;
+  formInfo: IFormInfo;
 };
 
-export default function StepBar({ phase, setPhase }: Props) {
-  const handleNext = () => {
-    if (phase.phase1 && phase.phase1Validated) {
-      setPhase((currentState) => ({ ...currentState, phase1Failed: false, phase1: false, phase2: true }));
+export default function StepBar({ phase, setPhase, errors, setErrors, formInfo }: Props) {
+  const checkErrors = () => {
+    if (formInfo.name.length < 3) {
+      setErrors((currentState) => ({ ...currentState, name: true }));
     } else {
-      setPhase((currentState) => ({ ...currentState, phase1Failed: true }));
+      setErrors((currentState) => ({ ...currentState, name: false }));
     }
+
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
+      setErrors((currentState) => ({ ...currentState, email: false }));
+    } else {
+      setErrors((currentState) => ({ ...currentState, email: true }));
+    }
+
+    if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
+      setErrors((currentState) => ({ ...currentState, phone: true }));
+    } else {
+      setErrors((currentState) => ({ ...currentState, phone: false }));
+    }
+  };
+
+  const handleNext = () => {
+    if (phase.phase1 && !phase.phase1Validated) {
+      checkErrors();
+    } else {
+      setPhase((currentState) => ({ ...currentState, phase1Failed: false, phase1: false, phase2: true }));
+    }
+
     if (phase.phase2) {
       setPhase({ ...phase, phase2: false, phase3: true });
     }
