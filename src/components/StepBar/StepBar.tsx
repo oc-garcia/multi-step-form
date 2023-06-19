@@ -11,7 +11,7 @@ type Props = {
   formInfo: IFormInfo;
 };
 
-export default function StepBar({ phase, setPhase, errors, setErrors, formInfo }: Props) {
+export default function StepBar({ phase, setPhase, setErrors, formInfo }: Props) {
   const checkErrors = () => {
     if (formInfo.name.length < 3) {
       setErrors((currentState) => ({ ...currentState, name: true }));

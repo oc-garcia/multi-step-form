@@ -13,7 +13,7 @@ type Props = {
   setErrors: React.Dispatch<React.SetStateAction<IErrors>>;
 };
 
-export default function Phase1({ formInfo, setFormInfo, phase, setPhase, errors, setErrors }: Props) {
+export default function Phase1({ formInfo, setFormInfo, setPhase, errors, setErrors }: Props) {
   useEffect(() => {
     if (errors.name && errors.phone && errors.email) {
       setPhase((currentState) => ({ ...currentState, phase1Validated: false }));
