@@ -17,7 +17,6 @@ type Props = {
 };
 
 export default function MultStepForm({ phase, setPhase, errors, setErrors, formInfo, setFormInfo }: Props) {
-  console.log(phase, errors);
   return (
     <form className={styles.formContainer}>
       {phase.phase1 && (
