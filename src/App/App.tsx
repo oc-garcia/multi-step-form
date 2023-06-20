@@ -44,10 +44,18 @@ function App() {
     <section className={styles.mainContainer}>
       <div className={styles.topContainer}>
         <div className={styles.phaseContainer}>
-          <PhaseIndicator phase={phase.phase1}>1</PhaseIndicator>
-          <PhaseIndicator phase={phase.phase2}>2</PhaseIndicator>
-          <PhaseIndicator phase={phase.phase3}>3</PhaseIndicator>
-          <PhaseIndicator phase={phase.phase4}>4</PhaseIndicator>
+          <PhaseIndicator phase={phase.phase1} id={1}>
+            1
+          </PhaseIndicator>
+          <PhaseIndicator phase={phase.phase2} id={2}>
+            2
+          </PhaseIndicator>
+          <PhaseIndicator phase={phase.phase3} id={3}>
+            3
+          </PhaseIndicator>
+          <PhaseIndicator phase={phase.phase4} id={4}>
+            4
+          </PhaseIndicator>
         </div>
         <MultStepForm
           phase={phase}

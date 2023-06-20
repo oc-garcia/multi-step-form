@@ -13,5 +13,33 @@
   background-color: var(--Light_blue);
   font-weight: 700;
   color: var(--Marine-blue);
-   border: 1px solid var(--Light_blue);
+  border: 1px solid var(--Light_blue);
+}
+
+.phaseIndicatorDetailsContainer {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .phaseIndicatorContainer {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    width: 20vw;
+  }
+
+  .phaseIndicatorDetailsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stepTextIndicator {
+    font-size: small;
+    font-weight: 400;
+    color: var(--Cool_gray);
+  }
+  .title {
+    font-size: small;
+    color: var(--White);
+  }
 }

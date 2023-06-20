@@ -25,3 +25,24 @@
   gap: 1rem;
   padding: 2rem;
 }
+
+@media (min-width: 800px) {
+  .mainContainer {
+    background-color: var(--Light_blue);
+    padding: 2rem;
+  }
+
+  .topContainer {
+    flex-direction: row;
+    background-image: none;
+    background-color: var(--White);
+    border-radius: 10px;
+  }
+
+  .phaseContainer {
+    background-image: url("../assets/images/bg-sidebar-desktop.svg");
+    background-size: cover;
+    border-radius: 10px;
+    flex-direction: column;
+  }
+}
