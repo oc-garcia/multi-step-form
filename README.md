@@ -77,4 +77,6 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 Thank you for your interest in this multi-step form wizard project!
 
+## Project Image
+![](./public/Captura%20de%20tela%20de%202023-06-20%2016-35-21.png#vitrinedev)
 
