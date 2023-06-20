@@ -67,10 +67,6 @@ In the upcoming refactoring phase, the React Hook Form context and Zod will be i
 
 This form is deployed and can be accessed at the following link: [Multi Step Form](https://multi-step-form-oc-garcia.vercel.app/)
 
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to modify and adapt it to suit your needs.
-
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
