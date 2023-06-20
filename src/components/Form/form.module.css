@@ -185,3 +185,11 @@
   color: var(--Cool_gray);
   line-height: 1.5rem;
 }
+
+@media (min-width: 800px) {
+  .formContainer {
+    justify-content: center;
+    position: relative;
+    align-self: center;
+  }
+}

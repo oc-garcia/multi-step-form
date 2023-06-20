@@ -46,3 +46,23 @@
   height: 10vh;
   background-color: var(--Light_blue);
 }
+
+@media (min-width: 800px) {
+  .stepBarContainer1 {
+    height: auto;
+    padding: 0;
+    position: relative;
+    position: absolute;
+    top: 86%;
+    right: 18%;
+  }
+  .stepBarContainer234 {
+    height: auto;
+    padding: 0;
+    width: 30vw;
+    position: relative;
+    position: absolute;
+    top: 86%;
+    right: 20%;
+  }
+}

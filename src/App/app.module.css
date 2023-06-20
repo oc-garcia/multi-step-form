@@ -30,6 +30,7 @@
   .mainContainer {
     background-color: var(--Light_blue);
     padding: 2rem;
+    align-items: center;
   }
 
   .topContainer {
@@ -37,6 +38,8 @@
     background-image: none;
     background-color: var(--White);
     border-radius: 10px;
+    width: 70vw;
+    gap: 3rem;
   }
 
   .phaseContainer {
