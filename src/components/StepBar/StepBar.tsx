@@ -36,7 +36,7 @@ export default function StepBar({ phase, setPhase, setErrors, formInfo }: Props)
     if (phase.phase1 && !phase.phase1Validated) {
       checkErrors();
     } else {
-      setPhase((currentState) => ({ ...currentState, phase1Failed: false, phase1: false, phase2: true }));
+      setPhase((currentState) => ({ ...currentState, phase1: false, phase2: true }));
     }
 
     if (phase.phase2) {
