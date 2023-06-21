@@ -1,16 +1,15 @@
-import React, { SetStateAction, useEffect, useState } from "react";
-import { IFormInfo } from "../../../../types/IFormInfo";
+import { useContext, useEffect, useState } from "react";
 import styles from "./planCard.module.css";
+import { FormContext } from "../../../../../hooks/formContext";
 
 type Props = {
-  formInfo: IFormInfo;
-  setFormInfo: React.Dispatch<SetStateAction<IFormInfo>>;
   planName: string;
   planLogo: string;
 };
 
-export default function PlanCard({ formInfo, setFormInfo, planName, planLogo }: Props) {
+export default function PlanCard({ planName, planLogo }: Props) {
   const [price, setPrice] = useState<number>(0);
+  const { formInfo, handlePhase2Select } = useContext(FormContext);
 
   const isSelected = () => {
     if (planName === formInfo.planName) {
@@ -41,7 +40,7 @@ export default function PlanCard({ formInfo, setFormInfo, planName, planLogo }: 
   return (
     <div
       onClick={() => {
-        setFormInfo({ ...formInfo, planName: planName, basePrice: price });
+        handlePhase2Select(planName, price);
       }}
       className={isSelected() ? styles.planCardContainerSelected : styles.planCardContainer}>
       <img src={planLogo} alt={`${planName} logo`} />

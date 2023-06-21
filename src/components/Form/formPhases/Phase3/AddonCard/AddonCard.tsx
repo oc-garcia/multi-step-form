@@ -1,15 +1,20 @@
-import { BaseSyntheticEvent, SetStateAction, useEffect, useState } from "react";
-import { IFormInfo } from "../../../../types/IFormInfo";
+import { BaseSyntheticEvent, useContext, useEffect, useState } from "react";
 import styles from "./addonCard.module.css";
+import { FormContext } from "../../../../../hooks/formContext";
 
 type Props = {
-  formInfo: IFormInfo;
-  setFormInfo: React.Dispatch<SetStateAction<IFormInfo>>;
   name: string;
   id: string;
 };
 
-export default function AddonCard({ formInfo, setFormInfo, name, id }: Props) {
+export default function AddonCard({ name, id }: Props) {
+  const {
+    formInfo,
+    handlePhase3SelectOnlineService,
+    handlePhase3SelectLargerStorage,
+    handlePhase3SelectcustomizableProfile,
+  } = useContext(FormContext);
+
   const handleDescription = () => {
     if (name === "Online service") {
       return "Access to multiplayer games";
@@ -59,20 +64,20 @@ export default function AddonCard({ formInfo, setFormInfo, name, id }: Props) {
         if (e.target.checked) {
           setIsChecked(true);
           if (id === "onlineService") {
-            setFormInfo({ ...formInfo, onlineService: price });
+            handlePhase3SelectOnlineService(price);
           } else if (id === "largerStorage") {
-            setFormInfo({ ...formInfo, largerStorage: price });
+            handlePhase3SelectLargerStorage(price);
           } else if (id === "customizableProfile") {
-            setFormInfo({ ...formInfo, customizableProfile: price });
+            handlePhase3SelectcustomizableProfile(price);
           }
         } else {
           setIsChecked(false);
           if (id === "onlineService") {
-            setFormInfo({ ...formInfo, onlineService: 0 });
+            handlePhase3SelectOnlineService(0);
           } else if (id === "largerStorage") {
-            setFormInfo({ ...formInfo, largerStorage: 0 });
+            handlePhase3SelectLargerStorage(0);
           } else if (id === "customizableProfile") {
-            setFormInfo({ ...formInfo, customizableProfile: 0 });
+            handlePhase3SelectcustomizableProfile(0);
           }
         }
       }}

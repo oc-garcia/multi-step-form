@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import styles from "./form.module.css";
-import Phase1 from "./Phase1/Phase1";
-import Phase2 from "./Phase2/Phase2";
-import Phase3 from "./Phase3/Phase3";
-import Phase4 from "./Phase4/Phase4";
+import Phase1 from "./formPhases/Phase1/Phase1";
+import Phase2 from "./formPhases/Phase2/Phase2";
+import Phase3 from "./formPhases/Phase3/Phase3";
+import Phase4 from "./formPhases/Phase4/Phase4";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormContext } from "../../hooks/formContext";
 
