@@ -1,16 +1,10 @@
-import React from "react";
-import { IFormInfo } from "../../../types/IFormInfo";
-import styles from "../form.module.css";
-import { Iphase } from "../../../types/IPhase";
-import submittedLogo from "../../../assets/images/icon-thank-you.svg";
+import styles from "../../form.module.css";
+import submittedLogo from "../../../../assets/images/icon-thank-you.svg";
+import { useContext } from "react";
+import { FormContext } from "../../../../hooks/formContext";
 
-type Props = {
-  formInfo: IFormInfo;
-  phase: Iphase;
-  setPhase: React.Dispatch<React.SetStateAction<Iphase>>;
-};
-
-export default function Phase4({ formInfo, phase, setPhase }: Props) {
+export default function Phase4() {
+  const { formInfo, phase, handlePhase4ChangePlan } = useContext(FormContext);
   const getTotal = () => {
     const total = formInfo.basePrice + formInfo.onlineService + formInfo.largerStorage + formInfo.customizableProfile;
     return total;
@@ -26,9 +20,7 @@ export default function Phase4({ formInfo, phase, setPhase }: Props) {
               <h3 className={styles.listItemMainName}>
                 {formInfo.planName} ({formInfo.planType})
               </h3>
-              <p
-                onClick={() => setPhase({ ...phase, phase2: true, phase4: false })}
-                className={styles.listItemChangePlan}>
+              <p onClick={handlePhase4ChangePlan} className={styles.listItemChangePlan}>
                 Change
               </p>
             </div>

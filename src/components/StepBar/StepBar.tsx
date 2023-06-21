@@ -1,66 +1,48 @@
-import { IErrors } from "../../types/IErrors";
-import { IFormInfo } from "../../types/IFormInfo";
-import { Iphase } from "../../types/IPhase";
+import { useContext } from "react";
 import styles from "./stepBar.module.css";
+import { FormContext } from "../../hooks/formContext";
 
-type Props = {
-  phase: Iphase;
-  setPhase: React.Dispatch<React.SetStateAction<Iphase>>;
-  errors: IErrors;
-  setErrors: React.Dispatch<React.SetStateAction<IErrors>>;
-  formInfo: IFormInfo;
-};
-
-export default function StepBar({ phase, setPhase, setErrors, formInfo }: Props) {
-  const checkErrors = () => {
-    if (formInfo.name.length < 3) {
-      setErrors((currentState) => ({ ...currentState, name: true }));
-    } else {
-      setErrors((currentState) => ({ ...currentState, name: false }));
-    }
-
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(formInfo.email)) {
-      setErrors((currentState) => ({ ...currentState, email: false }));
-    } else {
-      setErrors((currentState) => ({ ...currentState, email: true }));
-    }
-
-    if (formInfo.phone.length < 9 && formInfo.phone.length < 12) {
-      setErrors((currentState) => ({ ...currentState, phone: true }));
-    } else {
-      setErrors((currentState) => ({ ...currentState, phone: false }));
-    }
-  };
+export default function StepBar() {
+  const {
+    phase,
+    handleBackToPhase1,
+    handleNextToPhase2,
+    handleNextToPhase3,
+    handleNextToPhase4,
+    handleBackToPhase2,
+    handleBackToPhase3,
+    handlePhaseSubmit,
+  } = useContext(FormContext);
 
   const handleNext = () => {
     if (phase.phase1 && !phase.phase1Validated) {
-      checkErrors();
+      //
     } else {
-      setPhase((currentState) => ({ ...currentState, phase1: false, phase2: true }));
+      handleNextToPhase2();
     }
 
     if (phase.phase2) {
-      setPhase({ ...phase, phase2: false, phase3: true });
+      handleNextToPhase3();
     }
     if (phase.phase3) {
-      setPhase({ ...phase, phase3: false, phase4: true });
+      handleNextToPhase4();
     }
   };
 
   const handleBack = () => {
     if (phase.phase2) {
-      setPhase({ ...phase, phase1: true, phase2: false });
+      handleBackToPhase1();
     }
     if (phase.phase3) {
-      setPhase({ ...phase, phase2: true, phase3: false });
+      handleBackToPhase2();
     }
     if (phase.phase4) {
-      setPhase({ ...phase, phase3: true, phase4: false });
+      handleBackToPhase3();
     }
   };
 
   const handleSubmit = () => {
-    setPhase({ ...phase, submitted: true });
+    handlePhaseSubmit;
   };
   if (!phase.submitted) {
     return (
