@@ -1,14 +1,13 @@
-import { ReactNode, useContext } from "react";
+import { ReactNode } from "react";
 import styles from "./phaseIndicator.module.css";
-import { FormContext } from "../../hooks/formContext";
 
 type Props = {
+  phase: boolean;
   children: ReactNode;
   id: number;
 };
 
-export default function PhaseIndicator({ children, id }: Props) {
-  const { phase } = useContext(FormContext);
+export default function PhaseIndicator({ children, id, phase }: Props) {
   const handleTitle = (prmt: number) => {
     if (prmt === 1) {
       return "YOUR INFO";
