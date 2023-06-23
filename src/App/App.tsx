@@ -27,7 +27,7 @@ function App() {
           </div>
           <MultStepForm />
         </div>
-        <StepBar />
+        {/*<StepBar />*/}
       </section>
     </FormContextProvider>
   );

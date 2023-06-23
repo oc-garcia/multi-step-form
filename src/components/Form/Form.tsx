@@ -6,6 +6,7 @@ import Phase3 from "./formPhases/Phase3/Phase3";
 import Phase4 from "./formPhases/Phase4/Phase4";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormContext } from "../../hooks/formContext";
+import StepBar from "../StepBar/StepBar";
 
 export default function MultStepForm() {
   const methods = useForm();
@@ -13,11 +14,14 @@ export default function MultStepForm() {
   const { phase } = useContext(FormContext);
   return (
     <FormProvider {...methods}>
-      <form className={styles.formContainer} onSubmit={methods.handleSubmit(onSubmit)}>
-        {phase.phase1 && <Phase1 />}
-        {phase.phase2 && <Phase2 />}
-        {phase.phase3 && <Phase3 />}
-        {phase.phase4 && <Phase4 />}
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
+        <div className={styles.formContainer}>
+          {phase.phase1 && <Phase1 />}
+          {phase.phase2 && <Phase2 />}
+          {phase.phase3 && <Phase3 />}
+          {phase.phase4 && <Phase4 />}
+        </div>
+        <StepBar />
       </form>
     </FormProvider>
   );

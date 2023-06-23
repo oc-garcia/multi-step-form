@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  position: absolute;
+  width: 100vw;
+  bottom: 00%;
 }
 
 .stepBarContainer234 {
@@ -15,6 +18,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  position: absolute;
+  width: 100vw;
+  bottom: 00%;
 }
 
 .backBtn {
@@ -22,6 +28,7 @@
   cursor: pointer;
   font-size: small;
   font-weight: 700;
+  border: none;
 }
 
 .nextBtn {
@@ -31,6 +38,7 @@
   color: var(--White);
   font-weight: 700;
   border-radius: 5px;
+  border: none;
 }
 
 .submitBtn {
@@ -40,6 +48,7 @@
   color: var(--White);
   font-weight: 700;
   border-radius: 5px;
+  border: none;
 }
 
 .stepBarContainerSubmitted {
@@ -49,20 +58,11 @@
 
 @media (min-width: 800px) {
   .stepBarContainer1 {
-    height: auto;
-    padding: 0;
-    position: relative;
-    position: absolute;
-    top: 86%;
-    right: 18%;
+    position: static;
+    width: auto;
   }
   .stepBarContainer234 {
-    height: auto;
-    padding: 0;
-    width: 30vw;
-    position: relative;
-    position: absolute;
-    top: 86%;
-    right: 20%;
+    position: static;
+    width: auto;
   }
 }

@@ -1,6 +1,7 @@
 .formContainer {
   background-color: var(--White);
   padding: 1.5rem 1rem;
+  margin: 1rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;

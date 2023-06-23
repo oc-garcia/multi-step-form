@@ -48,19 +48,19 @@ export default function StepBar() {
     return (
       <div className={phase.phase1 ? styles.stepBarContainer1 : styles.stepBarContainer234}>
         {!phase.phase1 && (
-          <p onClick={handleBack} className={styles.backBtn}>
+          <button onClick={handleBack} className={styles.backBtn}>
             Go Back
-          </p>
+          </button>
         )}
         {!phase.phase4 && (
-          <p onClick={handleNext} className={styles.nextBtn}>
+          <button onClick={handleNext} className={styles.nextBtn}>
             Next Step
-          </p>
+          </button>
         )}
         {phase.phase4 && (
-          <p onClick={handleSubmit} className={styles.submitBtn}>
+          <button onClick={handleSubmit} className={styles.submitBtn}>
             Confirm
-          </p>
+          </button>
         )}
       </div>
     );
