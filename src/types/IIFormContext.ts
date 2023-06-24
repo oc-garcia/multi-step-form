@@ -10,7 +10,7 @@ export interface IFormContext {
   handlePhase3SelectLargerStorage: (price: number) => void;
   handlePhase3SelectcustomizableProfile: (price: number) => void;
   handlePhase4ChangePlan: () => void;
-  handleNextToPhase2: () => void;
+  handleNextToPhase2: (data: any) => Promise<void>
   handleNextToPhase3: () => void;
   handleNextToPhase4: () => void;
   handleBackToPhase1: () => void;

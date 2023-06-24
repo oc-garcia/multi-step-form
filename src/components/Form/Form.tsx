@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import styles from "./form.module.css";
 import Phase1 from "./formPhases/Phase1/Phase1";
 import Phase2 from "./formPhases/Phase2/Phase2";
@@ -10,8 +10,22 @@ import StepBar from "../StepBar/StepBar";
 
 export default function MultStepForm() {
   const methods = useForm();
-  const onSubmit = (data) => console.log(data);
-  const { phase } = useContext(FormContext);
+  const { phase, formInfo, handleNextToPhase2 } = useContext(FormContext);
+  //
+  const promise = (data : any) => {
+    return new Promise((resolve) => {
+      resolve(data);
+    });
+  };
+
+  const onSubmit = (data: any) => {
+    handleNextToPhase2(promise(data));
+  };
+
+  useEffect(() => {
+    console.log(formInfo, phase);
+  }, [formInfo, phase]);
+  //
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>

@@ -37,6 +37,14 @@ type Props = {
   children: ReactNode;
 };
 
+type formDataProps = {
+  data: {
+    name: string;
+    email: string;
+    phone: string;
+  };
+};
+
 export const FormContextProvider = ({ children }: Props) => {
   const [formInfo, setFormInfo] = useState(formInfoDefault);
   const [phase, setPhase] = useState(phaseDefault);
@@ -85,9 +93,17 @@ export const FormContextProvider = ({ children }: Props) => {
     setPhase({ ...phase, phase2: true, phase4: false });
   };
 
-  const handleNextToPhase2 = () => {
+  async function handleNextToPhase2(data: any) {
+    const response = await data;
+    console.log(response);
+    setFormInfo({
+      ...formInfo,
+      name: response?.name,
+      email: response?.email,
+      phone: response?.phone,
+    });
     setPhase((currentState) => ({ ...currentState, phase1: false, phase2: true }));
-  };
+  }
 
   const handleNextToPhase3 = () => {
     setPhase({ ...phase, phase2: false, phase3: true });

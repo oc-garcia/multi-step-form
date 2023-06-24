@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import styles from "./phaseIndicator.module.css";
 
 type Props = {
@@ -36,6 +36,8 @@ export default function PhaseIndicator({ children, id, phase }: Props) {
       return "STEP ";
     }
   };
+
+  useEffect(() => {console.log("Render")}, [phase]);
   return (
     <div className={styles.phaseIndicatorContainer}>
       <div className={phase ? styles.phaseIndicatorActive : styles.phaseIndicatorInactive}>{children}</div>
