@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styles from "./stepBar.module.css";
 import { FormContext } from "../../hooks/formContext";
 
-export default function StepBar() {
+export default function StepBar({ errors }: any) {
   const {
     phase,
     handleBackToPhase1,
@@ -14,18 +14,25 @@ export default function StepBar() {
     handlePhaseSubmit,
   } = useContext(FormContext);
 
+  const hasError = (obj) => {
+    return Object.keys(obj).length === 0;
+  };
+
   const handleNext = () => {
-    if (phase.phase1 && !phase.phase1Validated) {
-      //
+    if (phase.phase1 && hasError(errors)) {
+      console.log(errors);
     } else {
       handleNextToPhase2();
+      console.log("handleNextToPhase2");
     }
 
     if (phase.phase2) {
       handleNextToPhase3();
+      console.log("handleNextToPhase3");
     }
     if (phase.phase3) {
       handleNextToPhase4();
+      console.log("handleNextToPhase4");
     }
   };
 

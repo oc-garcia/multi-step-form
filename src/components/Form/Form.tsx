@@ -11,8 +11,8 @@ import StepBar from "../StepBar/StepBar";
 export default function MultStepForm() {
   const methods = useForm();
   const { phase, formInfo, handleNextToPhase2 } = useContext(FormContext);
-  //
-  const promise = (data : any) => {
+
+  const promise = (data: any) => {
     return new Promise((resolve) => {
       resolve(data);
     });
@@ -23,9 +23,9 @@ export default function MultStepForm() {
   };
 
   useEffect(() => {
-    console.log(formInfo, phase);
-  }, [formInfo, phase]);
-  //
+    console.log(formInfo, phase, methods.formState.errors, "render");
+  }, [formInfo, phase, methods]);
+  
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -35,7 +35,7 @@ export default function MultStepForm() {
           {phase.phase3 && <Phase3 />}
           {phase.phase4 && <Phase4 />}
         </div>
-        <StepBar />
+        <StepBar errors={methods.formState.errors} />
       </form>
     </FormProvider>
   );

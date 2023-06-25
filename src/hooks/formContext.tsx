@@ -18,7 +18,6 @@ const formInfoDefault = {
 
 const phaseDefault = {
   phase1: true,
-  phase1Validated: false,
   phase1Failed: false,
   phase2: false,
   phase3: false,
@@ -35,14 +34,6 @@ export const FormContext = createContext(formContextDefault);
 
 type Props = {
   children: ReactNode;
-};
-
-type formDataProps = {
-  data: {
-    name: string;
-    email: string;
-    phone: string;
-  };
 };
 
 export const FormContextProvider = ({ children }: Props) => {
@@ -95,7 +86,6 @@ export const FormContextProvider = ({ children }: Props) => {
 
   async function handleNextToPhase2(data: any) {
     const response = await data;
-    console.log(response);
     setFormInfo({
       ...formInfo,
       name: response?.name,

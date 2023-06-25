@@ -1,7 +1,6 @@
 import MultStepForm from "../components/Form/Form";
 import styles from "./app.module.css";
 import PhaseIndicator from "../components/PhaseIndicator/PhaseIndicator";
-import StepBar from "../components/StepBar/StepBar";
 import { FormContext, FormContextProvider } from "../hooks/formContext";
 import { useContext } from "react";
 
@@ -27,7 +26,6 @@ function App() {
           </div>
           <MultStepForm />
         </div>
-        {/*<StepBar />*/}
       </section>
     </FormContextProvider>
   );
