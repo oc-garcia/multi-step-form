@@ -23,7 +23,7 @@ export default function StepBar() {
   };
 
   const handleSubmit = () => {
-    handlePhaseSubmit;
+    handlePhaseSubmit();
   };
   if (!phase.submitted) {
     return (
