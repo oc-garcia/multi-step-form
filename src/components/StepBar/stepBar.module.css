@@ -65,4 +65,9 @@
     position: static;
     width: auto;
   }
+
+  .stepBarContainerSubmitted {
+    height: 10vh;
+    background-color: var(--White);
+  }
 }
