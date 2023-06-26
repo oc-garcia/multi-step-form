@@ -92,7 +92,7 @@ export const FormContextProvider = ({ children }: Props) => {
       email: response?.email,
       phone: response?.phone,
     });
-    setPhase((currentState) => ({ ...currentState, phase1: false, phase2: true }));
+    setPhase({ ...phase, phase1: false, phase2: true });
   }
 
   const handleNextToPhase3 = () => {
