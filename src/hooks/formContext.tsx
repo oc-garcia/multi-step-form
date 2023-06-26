@@ -104,19 +104,19 @@ export const FormContextProvider = ({ children }: Props) => {
   };
 
   const handleBackToPhase1 = () => {
-    setPhase({ ...phase, phase1: true, phase2: false });
+    setPhase((currentState) => ({ ...currentState, phase1: true, phase2: false }));
   };
 
   const handleBackToPhase2 = () => {
-    setPhase({ ...phase, phase2: true, phase3: false });
+    setPhase((currentState) => ({ ...currentState, phase2: true, phase3: false }));
   };
 
   const handleBackToPhase3 = () => {
-    setPhase({ ...phase, phase3: true, phase4: false });
+    setPhase((currentState) => ({ ...currentState, phase3: true, phase4: false }));
   };
 
   const handlePhaseSubmit = () => {
-    setPhase({ ...phase, submitted: true });
+    setPhase((currentState) => ({ ...currentState, submitted: true }));
   };
 
   return (

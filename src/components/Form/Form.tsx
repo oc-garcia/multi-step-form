@@ -31,7 +31,7 @@ export default function MultStepForm() {
       handleNextToPhase3();
       console.log("handleNextToPhase3");
     }
-    if (phase.phase3 && !phase.phase2 && !phase.phase3 && !phase.phase4) {
+    if (phase.phase3 && !phase.phase1 && !phase.phase2 && !phase.phase4) {
       handleNextToPhase4();
       console.log("handleNextToPhase4");
     }
