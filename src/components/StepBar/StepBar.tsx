@@ -10,15 +10,12 @@ export default function StepBar() {
     event.preventDefault();
     if (phase.phase2 && !phase.phase1 && !phase.phase3 && !phase.phase4) {
       handleBackToPhase1();
-      console.log("back");
     }
     if (phase.phase3 && !phase.phase1 && !phase.phase2 && !phase.phase4) {
       handleBackToPhase2();
-      console.log("back");
     }
     if (phase.phase4 && !phase.phase1 && !phase.phase2 && !phase.phase3) {
       handleBackToPhase3();
-      console.log("back");
     }
   };
 

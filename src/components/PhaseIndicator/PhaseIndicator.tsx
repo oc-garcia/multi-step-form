@@ -1,13 +1,28 @@
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useContext, useEffect, useState } from "react";
 import styles from "./phaseIndicator.module.css";
+import { FormContext } from "../../hooks/formContext";
 
 type Props = {
-  phase: boolean;
   children: ReactNode;
   id: number;
 };
 
-export default function PhaseIndicator({ children, id, phase }: Props) {
+export default function PhaseIndicator({ children, id }: Props) {
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const { phase } = useContext(FormContext);
+  const handleIndicatorStyle = () => {
+    if (phase.phase1 && id == 1) {
+      setIsActive(true);
+    } else if (phase.phase2 && id == 2) {
+      setIsActive(true);
+    } else if (phase.phase3 && id == 3) {
+      setIsActive(true);
+    } else if (phase.phase4 && id == 4) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  };
   const handleTitle = (prmt: number) => {
     if (prmt === 1) {
       return "YOUR INFO";
@@ -36,11 +51,12 @@ export default function PhaseIndicator({ children, id, phase }: Props) {
       return "STEP ";
     }
   };
-
-  useEffect(() => {console.log("Render")}, [phase]);
+  useEffect(() => {
+    handleIndicatorStyle();
+  }, [phase]);
   return (
     <div className={styles.phaseIndicatorContainer}>
-      <div className={phase ? styles.phaseIndicatorActive : styles.phaseIndicatorInactive}>{children}</div>
+      <div className={isActive ? styles.phaseIndicatorActive : styles.phaseIndicatorInactive}>{children}</div>
       <div className={styles.phaseIndicatorDetailsContainer}>
         <h2 className={styles.stepTextIndicator}>{handleStepTextIndicator(id)}</h2>
         <h2 className={styles.title}>{handleTitle(id)}</h2>
