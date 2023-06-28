@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { SyntheticEvent, useContext } from "react";
 import styles from "./stepBar.module.css";
 import { FormContext } from "../../hooks/formContext";
 
@@ -6,7 +6,7 @@ export default function StepBar() {
   const { phase, handleBackToPhase1, handleBackToPhase2, handleBackToPhase3, handlePhaseSubmit } =
     useContext(FormContext);
 
-  const handleBack = (event: any) => {
+  const handleBack = (event: SyntheticEvent) => {
     event.preventDefault();
     if (phase.phase2 && !phase.phase1 && !phase.phase3 && !phase.phase4) {
       handleBackToPhase1();

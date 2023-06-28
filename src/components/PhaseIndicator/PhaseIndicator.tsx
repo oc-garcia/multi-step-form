@@ -10,19 +10,7 @@ type Props = {
 export default function PhaseIndicator({ children, id }: Props) {
   const [isActive, setIsActive] = useState<boolean>(false);
   const { phase } = useContext(FormContext);
-  const handleIndicatorStyle = () => {
-    if (phase.phase1 && id == 1) {
-      setIsActive(true);
-    } else if (phase.phase2 && id == 2) {
-      setIsActive(true);
-    } else if (phase.phase3 && id == 3) {
-      setIsActive(true);
-    } else if (phase.phase4 && id == 4) {
-      setIsActive(true);
-    } else {
-      setIsActive(false);
-    }
-  };
+
   const handleTitle = (prmt: number) => {
     if (prmt === 1) {
       return "YOUR INFO";
@@ -52,8 +40,21 @@ export default function PhaseIndicator({ children, id }: Props) {
     }
   };
   useEffect(() => {
+    const handleIndicatorStyle = () => {
+      if (phase.phase1 && id == 1) {
+        setIsActive(true);
+      } else if (phase.phase2 && id == 2) {
+        setIsActive(true);
+      } else if (phase.phase3 && id == 3) {
+        setIsActive(true);
+      } else if (phase.phase4 && id == 4) {
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    };
     handleIndicatorStyle();
-  }, [phase]);
+  }, [phase, id]);
   return (
     <div className={styles.phaseIndicatorContainer}>
       <div className={isActive ? styles.phaseIndicatorActive : styles.phaseIndicatorInactive}>{children}</div>

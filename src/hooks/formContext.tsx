@@ -2,6 +2,7 @@ import { ReactNode, createContext, useState } from "react";
 import { IFormInfo } from "../types/IFormInfo";
 import { Iphase } from "../types/IPhase";
 import { IFormContext } from "../types/IIFormContext";
+import { IPhase1Info } from "../types/IPhase1Info";
 
 const formInfoDefault = {
   name: "",
@@ -84,7 +85,7 @@ export const FormContextProvider = ({ children }: Props) => {
     setPhase({ ...phase, phase2: true, phase4: false });
   };
 
-  async function handleNextToPhase2(data: any) {
+  async function handleNextToPhase2(data: Promise<IPhase1Info>) {
     const response = await data;
     setFormInfo({
       ...formInfo,
