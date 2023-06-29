@@ -36,7 +36,7 @@ export default function PhaseIndicator({ children, id }: Props) {
       return "STEP 3";
     }
     if (prmt === 4) {
-      return "STEP ";
+      return "STEP 4";
     }
   };
   useEffect(() => {

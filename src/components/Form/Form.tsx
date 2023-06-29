@@ -41,7 +41,7 @@ export default function MultStepForm() {
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form className={styles.formTag} onSubmit={methods.handleSubmit(onSubmit)}>
         <div className={styles.formContainer}>
           {phase.phase1 && <Phase1 />}
           {phase.phase2 && <Phase2 />}

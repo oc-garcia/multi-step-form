@@ -5,6 +5,11 @@
   padding: 1rem;
   border-radius: 5px;
   border: 1px solid var(--Cool_gray);
+  cursor: pointer;
+}
+
+.planCardContainer:hover {
+  border: 1px solid var(--Purplish_blue);
 }
 
 .planCardContainerSelected {
@@ -15,6 +20,7 @@
   border-radius: 5px;
   border: 1px solid var(--Purplish_blue);
   background-color: var(--Light_blue);
+  cursor: pointer;
 }
 
 .planDetailsContainer {
@@ -34,4 +40,14 @@
 .planFreeDisclaimer {
   color: var(--Marine-blue);
   font-size: small;
+}
+
+@media (min-width: 800px) {
+  .planCardContainer,
+  .planCardContainerSelected {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 33%;
+  }
 }

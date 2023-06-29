@@ -5,6 +5,11 @@
   border-radius: 5px;
   border: 1px solid var(--Cool_gray);
   gap: 1rem;
+  cursor: pointer;
+}
+
+.addonCardContainer:hover {
+  border: 1px solid var(--Purplish_blue);
 }
 
 .addonCardContainerSelected {
@@ -15,6 +20,7 @@
   border: 1px solid var(--Purplish_blue);
   gap: 1rem;
   background-color: var(--Light_blue);
+  cursor: pointer;
 }
 
 .checkboxContainer {

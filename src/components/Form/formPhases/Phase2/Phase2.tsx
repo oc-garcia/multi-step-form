@@ -12,9 +12,11 @@ export default function Phase2() {
     <>
       <h2 className={styles.formTitle}>Select your plan</h2>
       <p className={styles.formDescription}>You have the option of monthly or yearly billing</p>
-      <PlanCard planName={"Arcade"} planLogo={arcadeLogo} />
-      <PlanCard planName={"Advanced"} planLogo={advancedLogo} />
-      <PlanCard planName={"Pro"} planLogo={proLogo} />
+      <div className={styles.phase2Container}>
+        <PlanCard planName={"Arcade"} planLogo={arcadeLogo} />
+        <PlanCard planName={"Advanced"} planLogo={advancedLogo} />
+        <PlanCard planName={"Pro"} planLogo={proLogo} />
+      </div>
       <div className={styles.planSelectorContainer}>
         <p className={formInfo.planType === "Monthly" ? styles.selectedPlan : styles.unselectedPlan}>Monthly</p>
         <div

@@ -14,15 +14,21 @@
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 75vh;
 }
 
 .phaseContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   padding: 2rem;
+}
+
+.topFormContainer {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
 }
 
 @media (min-width: 800px) {
@@ -30,6 +36,7 @@
     background-color: var(--Light_blue);
     padding: 2rem;
     align-items: center;
+    justify-content: center;
   }
 
   .topContainer {
@@ -37,14 +44,26 @@
     background-image: none;
     background-color: var(--White);
     border-radius: 10px;
-    width: 70vw;
     gap: 3rem;
+    padding: 1rem;
+    width: 70vw;
   }
 
   .phaseContainer {
     background-image: url("../assets/images/bg-sidebar-desktop.svg");
     background-size: cover;
+    background-repeat: no-repeat;
     border-radius: 10px;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    width: 25vw;
+  }
+
+  .topFormContainer {
+    display: flex;
+    justify-content: center;
+    width: 45vw;
   }
 }

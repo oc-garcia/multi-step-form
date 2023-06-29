@@ -14,7 +14,9 @@ function App() {
             <PhaseIndicator id={3}>3</PhaseIndicator>
             <PhaseIndicator id={4}>4</PhaseIndicator>
           </div>
-          <MultStepForm />
+          <div className={styles.topFormContainer}>
+            <MultStepForm />
+          </div>
         </div>
       </section>
     </FormContextProvider>

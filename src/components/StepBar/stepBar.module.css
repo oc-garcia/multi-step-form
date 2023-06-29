@@ -26,9 +26,13 @@
 .backBtn {
   color: var(--Cool_gray);
   cursor: pointer;
-  font-size: small;
   font-weight: 700;
   border: none;
+  background-color: var(--White);
+}
+
+.backBtn:hover {
+  color: var(--Marine-blue);
 }
 
 .nextBtn {
@@ -59,11 +63,11 @@
 @media (min-width: 800px) {
   .stepBarContainer1 {
     position: static;
-    width: auto;
+    width: 95%;
   }
   .stepBarContainer234 {
     position: static;
-    width: auto;
+    width: 95%;
   }
 
   .stepBarContainerSubmitted {

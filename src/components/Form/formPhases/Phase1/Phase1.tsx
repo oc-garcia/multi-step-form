@@ -17,7 +17,7 @@ export default function Phase1() {
           )}
         </div>
         <input
-          className={styles.input}
+          className={methods.formState.errors?.name ? styles.inputError : styles.input}
           id="name"
           type="text"
           placeholder="e.g. Stephen King"
@@ -31,14 +31,14 @@ export default function Phase1() {
       <div className={styles.inputContainer}>
         <div className={styles.labelContainer}>
           <label className={styles.label} htmlFor="email">
-            Email
+            Email Address
           </label>
           {methods.formState.errors?.email && (
             <span className={styles.errorMessage}>{String(methods.formState.errors.email?.message)}</span>
           )}
         </div>
         <input
-          className={styles.input}
+          className={methods.formState.errors?.email ? styles.inputError : styles.input}
           id="email"
           type="email"
           placeholder="e.g. stephenking@lorem.com"
@@ -58,7 +58,7 @@ export default function Phase1() {
           )}
         </div>
         <input
-          className={styles.input}
+          className={methods.formState.errors?.phone ? styles.inputError : styles.input}
           id="phone"
           type="number"
           placeholder="e.g. +1 234 567 890"
