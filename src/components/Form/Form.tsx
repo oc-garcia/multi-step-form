@@ -7,9 +7,17 @@ import Phase4 from "./formPhases/Phase4/Phase4";
 import { FieldErrors, FieldValues, FormProvider, useForm } from "react-hook-form";
 import { FormContext } from "../../hooks/formContext";
 import StepBar from "../StepBar/StepBar";
+import { ZodType, z } from "zod";
+import { IPhase1Info } from "../../types/IPhase1Info";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function MultStepForm() {
-  const methods = useForm();
+  const schema: ZodType<IPhase1Info> = z.object({
+    name: z.string().min(2).max(30),
+    email: z.string().email(),
+    phone: z.string().regex(/^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/),
+  });
+  const methods = useForm({ resolver: zodResolver(schema) });
   const { phase, handleNextToPhase2, handleNextToPhase3, handleNextToPhase4 } = useContext(FormContext);
 
   const promise = (data: FieldValues) => {

@@ -21,11 +21,7 @@ export default function Phase1() {
           id="name"
           type="text"
           placeholder="e.g. Stephen King"
-          {...methods.register("name", {
-            required: "Cannot be empty.",
-            maxLength: { value: 30, message: "Too long." },
-            minLength: { value: 2, message: "Too short." },
-          })}
+          {...methods.register("name")}
         />
       </div>
       <div className={styles.inputContainer}>
@@ -42,10 +38,7 @@ export default function Phase1() {
           id="email"
           type="email"
           placeholder="e.g. stephenking@lorem.com"
-          {...methods.register("email", {
-            required: "Cannot be empty",
-            pattern: { value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/i, message: "Not a valid email" },
-          })}
+          {...methods.register("email")}
         />
       </div>
       <div className={styles.inputContainer}>
@@ -62,13 +55,7 @@ export default function Phase1() {
           id="phone"
           type="number"
           placeholder="e.g. +1 234 567 890"
-          {...methods.register("phone", {
-            required: "Cannot be empty",
-            pattern: {
-              value: /^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/,
-              message: "Not a valid phone",
-            },
-          })}
+          {...methods.register("phone")}
         />
       </div>
     </>

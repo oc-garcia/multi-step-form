@@ -50,6 +50,7 @@
   font-size: small;
   font-weight: 700;
   color: var(--Strawberry_red);
+  text-align: right;
 }
 
 .input {
